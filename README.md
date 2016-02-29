@@ -29,8 +29,8 @@ Anything in the `$delete` array will be deleted from the original text when crea
 To modify these arrays, add the following lines to your config.php:
 
 ```
-c::get('headid-delete', array(':','(',')','?','.','!','$',',','%','^','&',"'",';','"','[',']','{','}','|','`','#'));
-c::get('headid-hyphenate', array(' ','~','@','*','+','=','/','>','<'));
+c::set('headid-delete', array(':','(',')','?','.','!','$',',','%','^','&',"'",';','"','[',']','{','}','|','`','#'));
+c::set('headid-hyphenate', array(' ','~','@','*','+','=','/','>','<'));
 ```
 
 Once these lines are in your config file, you can tweak them as desired and they will override the defaults.
