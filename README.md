@@ -18,11 +18,19 @@ I've tried to handle a variety of edge cases that we found necessary with our te
 
 Simply drop the headid.php file in the `/site/plugins` folder in your Kirby installation. If that folder doesn't exist, create it.
 
+There are config options mentioned below, but these are not necessary to use the plugin. It will default to my preferred settings.
+
 ## Configuration
 
-The plugin works by taking the text content of your ID tag and stripping out or replacing unwanted characters to create the ID. There are two variables that you can modify to make this fit your needs.
+The plugin works by taking the text content of your ID tag and stripping out or replacing unwanted characters to create the ID. The `$delete` and `$hyphenate` variables have what I would consider sane defaults that work for my needs, but you can change them in your config file.
 
-1. Anything in the `$delete` array will be deleted from the original text when creating the ID.
-2. Anything in the `$hyphenate` array will be replaced with a hyphen when creating the ID.
+Anything in the `$delete` array will be deleted from the original text when creating the ID. Anything in the `$hyphenate` array will be replaced with a hyphen when creating the ID.
 
-I think these are pretty much all illegal characters for an idea, so you probably want to remove all of them, and may want to come up with more. You may want to tweak which ones are in which array, though. For example, you might want the ampersand to become a hyphen instead of just being removed.
+To modify these arrays, add the following lines to your config.php:
+
+```
+c::get('headid-delete', array(':','(',')','?','.','!','$',',','%','^','&',"'",';','"','[',']','{','}','|','`','#'));
+c::get('headid-hyphenate', array(' ','~','@','*','+','=','/','>','<'));
+```
+
+Once these lines are in your config file, you can tweak them as desired and they will override the defaults.

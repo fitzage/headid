@@ -4,8 +4,8 @@
 function retitle($match) {
     // Characters in the $delete array will be removed
     // Characters in the $hyphenate array will be changed to hyphens
-    $delete = array(':','(',')','?','.','!','$',',','%','^','&',"'",';','"','[',']','{','}','|','`','#');
-    $hyphenate = array(' ','~','@','*','+','=','/','>','<');
+    $delete = c::get('headid-delete', array(':','(',')','?','.','!','$',',','%','^','&',"'",';','"','[',']','{','}','|','`','#'));
+    $hyphenate = c::get('headid-hyphenate', array(' ','~','@','*','+','=','/','>','<'));
 
     list($_unused, $h2, $title) = $match;
     preg_match('/id=\"(.*)\"/',$_unused,$idmatches);
